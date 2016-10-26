@@ -34,16 +34,36 @@ module.exports = function(app) {
   })
   */
 
-  //-- add one kitten
+  /**
+   * Method: post
+   */
   app.post('/kitten', function(req, res) {
     console.log('server routing for Kitten creation');
     Kitten.kitten(req, res);
   });
 
-  //-- get all kittens
-  app.get('/kitten', function(req, res) {
-    console.log('server routing for Kitten creation');
-    Kitten.all(req, res);
+  /**
+   * Method: get
+   * Param: kitten id
+   *
+   *  The pagination is based on the last kitten id
+   *  Calling this method will return 12 kittens objects
+   *  -- number of kittens returned is based on settings.pagination (see server/config/settings.js
+   *
+   */
+  app.get('/kitten/:id', function(req, res) {
+    console.log('server routing for Kitten get with id');
+    Kitten.paginate(req, res);
   });
 
+  /**
+   * Method: get
+   *
+   *  Get kitten objects based on settings.pagination
+   *
+   */
+  app.get('/kitten', function(req, res) {
+    console.log('server routing for Kitten get ');
+    Kitten.all(req, res);
+  });
 }

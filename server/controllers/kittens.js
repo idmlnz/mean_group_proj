@@ -1,6 +1,7 @@
 console.log('Kittens controller Loaded');
 
 var mongoose = require('mongoose');
+var settings = require('../config/settings.js')
 
 var Kitten = mongoose.model('Kitten');
 
@@ -43,11 +44,11 @@ module.exports = (function() {
     },
 
      // get all kitten from db
-    all: function(req, res) {
-      console.log('get all kittens - Kittens controller');
-
+    paginate: function(req, res) {
+      console.log('get paginated kittens - Kittens controller');
+      console.log('req id: ', req.params.id);
       var params = {
-         after: "581104e8d665a50350da573a"
+         after: req.params.id
       };
 
       if (false) {
@@ -55,7 +56,7 @@ module.exports = (function() {
       }
       else {
         Kitten.paginate(params, '_id')
-          .limit(20)
+          .limit(settings.pagination)
           .execPagination(function(err, data) {
               if (err) {
                 console.log('get all kittens -  Kittens controller failed: ' +  err);
@@ -68,6 +69,36 @@ module.exports = (function() {
       }
     },
 
+    all: function(req, res) {
+      console.log('get all kittens - Kittens controller');
+
+      if (false) {
+        res.json({errors: 'no @ sign'});
+      }
+      else {
+
+        Kitten.find({})
+          .limit(settings.pagination)
+          .exec(function (err, data) {
+              if (err) {
+                res.json(err);
+              } else {
+                res.json(data);
+              }
+        })
+
+        /* -- returns  all kittens
+         Kitten.find({}, function (err, data) {
+              if (err) {
+                res.json(err);
+              } else {
+                res.json(data);
+              }
+        })
+        */
+
+      }
+    }
 
 
     /*

@@ -3,5 +3,6 @@
 ////////////////////////////////////////////////////////////
 module.exports = {
     port: 8000,
-    db: 'meanproj'
+    db: 'meanproj',
+    pagination: 12
 };

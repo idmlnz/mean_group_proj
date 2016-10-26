@@ -16,10 +16,11 @@ app.use(express.static(path.join(__dirname, './bower_components')));
 
 
 //- config containing models
+var settings = require('./server/config/settings.js')
 require('./server/config/mongoose.js');
 require('./server/config/routes.js')(app);
 
 
 app.listen(8000, function() {
-    console.log("listening on port 8000");
+    console.log("listening on port ", settings.port);
 })
