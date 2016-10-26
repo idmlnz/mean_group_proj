@@ -51,17 +51,21 @@ u.save(function (err) {
 k.save(function (err) {
   if (err) return console.error(err);
 });
+
  */
 
-User.findOne({_id:'580e9c7b5373d907663cd9d8'}, function(err, user) {
+User.findOne({_id:'5810ebff0de19b02a576e7f7'}, function(err, user) {
   console.log('USER: ' + user.firstName);
 
 });
 
-Kitten.findOne({_id:'580e9c7b5373d907663cd9d9'}, function(err, kitten) {
+
+
+/* insert a kitten to the user
+Kitten.findOne({_id:'5810ebff0de19b02a576e7f8'}, function(err, kitten) {
   console.log(kitten.name);
 
-  User.findOne({_id:'580e9c7b5373d907663cd9d8'}, function(err, user) {
+  User.findOne({_id:'5810ebff0de19b02a576e7f7'}, function(err, user) {
 
     var kk = new Kitten(kitten);
 
@@ -85,5 +89,13 @@ Kitten.findOne({_id:'580e9c7b5373d907663cd9d9'}, function(err, kitten) {
 
 
 
+});
+
+ */
+
+
+User.find({ firstName: /fluffy/i }).populate('kitten').exec(function(err, users) {
+  console.log('POPULATE: ' + users) ;
+  //console.log('POPULATE: ' + kitten.name) ;
 });
 

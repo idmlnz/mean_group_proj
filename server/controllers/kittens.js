@@ -1,16 +1,16 @@
-console.log('Users controller Loaded');
+console.log('Kittens controller Loaded');
 
 var mongoose = require('mongoose');
 
-var User = mongoose.model('User');
+var Kitten = mongoose.model('Kitten');
 
 module.exports = (function() {
   return {
 
     index: function(req, res) {
-      console.log('Index Method of Users controller');
+      console.log('Index Method of Kittens controller');
 
-      User.find({}, function(err, data) {
+      Kitten.find({}, function(err, data) {
         if (err) {
           console.log(err);
           res.json(err);
@@ -20,30 +20,55 @@ module.exports = (function() {
       })
     },
 
-    user: function(req, res) {
-      console.log('user  rest-api  of Users controller');
+    // add one kitten to db
+    kitten: function(req, res) {
+      console.log('add a kitten - Kittens controller');
 
       if (/* there is not @ sign set */false) {
         res.json({errors: 'no @ sign'});
       }
       else {
-        var user = new User(req.body);
-        console.log('user.js user: ' + user);
-        console.log('user.js firstName: ' + user.firstName);
-        console.log('user.js email: ' + user.email);
-        console.log('user.js password: ' + user.password);
-        console.log('user.js kitten: ' + user.kitten);
+        var kitten = new Kitten(req.body);
 
-        user.save(function(err, data) {
+        kitten.save(function(err, data) {
           if (err) {
-            console.log('create user Users controller failed: ' +  err);
+            console.log('create kitten - Kittens controller failed: ' +  err);
             res.json(err);
           } else {
+            var result = {}
             res.json(data);
           }
         })
       }
     },
+
+     // get all kitten from db
+    all: function(req, res) {
+      console.log('get all kittens - Kittens controller');
+
+      var params = {
+         after: "581104e8d665a50350da573a"
+      };
+
+      if (false) {
+        res.json({errors: 'no @ sign'});
+      }
+      else {
+        Kitten.paginate(params, '_id')
+          .limit(20)
+          .execPagination(function(err, data) {
+              if (err) {
+                console.log('get all kittens -  Kittens controller failed: ' +  err);
+                res.json(err);
+              } else {
+                console.log('perPage: ', data.perPage);
+                res.json(data);
+              }
+          })
+      }
+    },
+
+
 
     /*
     delete: function(req, res) {

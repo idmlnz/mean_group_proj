@@ -4,8 +4,8 @@ console.log('User model loaded');
 
 var UserSchema = mongoose.Schema({
   firstName: {type: String, required: true, minlength: 1},
-  email: {type:String},
-  password: {type:String},
+  email: String,
+  password: String,
   kitten: [{type: mongoose.Schema.Types.ObjectId, ref: 'Kitten'}]
 }, {timestamps: true});
 

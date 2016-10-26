@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+
+        .thumbnail img { 
+          transition: all .2s ease-in-out;
+          }
+
+        .thumbnail img:hover { 
+          transform: scale(1.1); 
+        }
+    </style>
+    <script>
+           $(document).ready(function(){
+              $(".button-cat").click(function(){
+                  $.get('/users/isLogged', function(res) {
+                   console.log("logged: " + res.isLogged['value'])
+                   if (res.isLogged['value'] != 1) {
+                      //alert("user status:" + res.isLogged['value'])
+                      alert("You need to log-in or create an account!")
+                   }
+                   //else {
+                   //   alert("user status:" + res.isLogged['value'])
+                   //}
+                  }, 'json');
+              });
+          });// end of ready
+
+    </script>
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default" >
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Logo</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <button style="margin-top:8px; margin-right:5px" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Login</button>
+            </li>
+            <li>
+              <form action="/users/logout" style="margin-top: 8px;">
+                <button type="submit" class="btn btn-info">Logout</button> 
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+
+    <div class="container">
+      <br>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active text-center" style="width: 100%; margin: auto; padding: 10px;">
+
+            <div class="row">
+              <div class="col-xs-6 col-md-3">
+
+                <button type="submit" class="thumbnail button-cat" data-toggle="modal" data-target="#myModal2">
+                  <img class="img-responsive img-rounded" src="../static/images/cat1.jpeg" alt="cat1" >
+                </button>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat2.jpeg') }}" alt="cat2" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat3.jpeg') }}" alt="cat3" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat4.jpeg') }}" alt="cat4" >
+                </a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat5.jpeg') }}" alt="cat5" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat6.jpeg') }}" alt="cat6" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat7.jpeg') }}" alt="cat7" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat8.jpeg') }}" alt="cat8" >
+                </a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat9.jpeg') }}" alt="cat9" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat10.jpeg') }}" alt="cat10" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat11.jpeg') }}" alt="cat11" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat12.jpeg') }}" alt="cat12" >
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+
+          <!--
+          <div class="item text-center" style="width: 100%; margin: auto; padding: 10px;">
+
+            <div class="row">
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat13.jpeg') }}" alt="cat13" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat14.jpeg') }}" alt="cat14" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat15.jpeg') }}" alt="cat15" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="cat16.jpeg" alt="cat16" >
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat16.jpeg') }}" alt="cat16" >
+                </a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat17.jpeg') }}" alt="cat17" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat18.jpeg') }}" alt="cat18" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat19.jpeg') }}" alt="cat19" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat20.jpeg') }}" alt="cat20" >
+                </a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat21.jpeg') }}" alt="cat21" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat22.jpeg') }}" alt="cat22" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat23.jpeg') }}" alt="cat23" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat24.jpeg') }}" alt="cat24" >
+                </a>
+              </div>
+            </div>
+
+          </div>
+          -->
+
+        </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+
+
+    <!-- login modal -->
+     <!-- Trigger the modal with a button -->
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+
+            <h4 class="modal-title">Sign Up</h4>
+          </div>
+
+          <div class="row"> <!-- facebook -->
+            <div class="col-md-6 col-md-offset-3">
+                <br>
+                <button type="submit" class="btn btn-info center-block">Login with Facebook</button>
+            </div>
+          </div> <!-- End facebook -->
+
+          <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                          <!--
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                                 {% if messages %}
+                                   <ul class=flashes>
+                                       {% for category, message in messages: %}
+                                           {% if category == 'register_errors' %}
+                                                 <li>{{ message }}</li>
+                                             {% endif %}
+                                       {% endfor %}
+                                      </ul>
+                                 {% endif %}
+                            {% endwith %}
+                            -->
+                            <h3 class="col-md-offset-0">Registration</h3>
+                            <form action="/users/add" method="post" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-md-offset-1">First name:</label>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" name="firstname" placeholder="Enter here">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-md-offset-1">Last name:</label>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" name="lastname" placeholder="Enter here">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-md-offset-2">Email:</label>
+                                    <div class="col-md-5">
+                                        <input type="email" class="form-control" name="email" placeholder="Enter here">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-md-offset-1">Password:</label>
+                                    <div class="col-md-5">
+                                        <input type="password" class="form-control" name="password" placeholder="Enter here">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-md-offset-0">Confirm password:</label>
+                                    <div class="col-md-5">
+                                        <input type="password" class="form-control" name="confirm_password" placeholder="Enter here">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-2 col-md-offset-4">
+                                        <button type="submit" class="btn btn-info">Register</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <div class="col-md-5">
+                            <h3>Login</h3>
+<!--
+                            {% if mesg_origin == "login" %}
+                  {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                      {% for message in messages %}
+                        <p> <font color="red">{{message}}</font></p>
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
+                {% endif %}
+-->
+                            <form action="/users/login" method="post" class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="login-email" class="control-label col-md-2 col-md-offset-1">Email:</label>
+                                    <div class="col-md-5">
+                                      <input type="email" class="form-control" name="login-email" id="login-email" placeholder="Enter here">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="login-password" class="control-label col-md-3">Password:</label>
+                                    <div class="col-md-5">
+                                        <input type="password" class="form-control" name="login-password" id="login-password" placeholder="Enter here">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-5 col-md-offset-3">
+                                        <input type="submit" class="btn btn-info" value="Login">
+                                    </div>
+                                </div>
+                            </form>
+                        </div> <!-- End Login -->
+                    </div>
+                </div>
+
+          </div> <!-- End modal body  -->
+        </div> <!-- End modal content -->
+      </div>  <!-- End modal dialog -->
+  </div> <!-- End Modal -->
+
+
+
+  <!-- myModal2-->
+    <div id="myModal2" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+      <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-xs-6 col-xs-offset-3">
+                <div class="">
+                  <img id="cat" class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat1.jpeg') }}" alt="cat1">
+                </div>
+                <div class="caption">
+                  <h3>Kitten: Chris</h3>
+                  <p>This cat locates in san jose</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-2 col-xs-offset-3" style="margin-top:20px;">
+                <button type="submit" class="btn btn-info" name="rent">Rent</button>
+              </div>
+              <div class="col-xs-2 col-xs-offset-2" style="margin-top:20px;">
+                <button type="submit" class="btn btn-info" name="adopt">Adopt</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-xs-offset-4" style="margin-top:30px;">
+                <button type="submit" class="btn btn-info">Proceed to Checkout</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div> 
+      </div>
+    </div>
+  
+      
+    </div> 
+
+  <!-- end for mymodal2-->
+
+  </body>
+</html>
