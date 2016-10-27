@@ -13,7 +13,8 @@ app.config(function ($routeProvider) {
     })
 
     .when('/display', {
-      templateUrl: '../partials/display.html'
+      //templateUrl: '../partials/display.html'
+      templateUrl: '../partials/login.html'
     })
 
 

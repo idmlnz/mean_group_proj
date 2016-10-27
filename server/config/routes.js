@@ -20,19 +20,6 @@ module.exports = function(app) {
   });
 
 
-  /*
-  app.post('/people', function(req, res) {
-
-    console.log('server/config/routes/user.js person: ' + req.body);
-    Person.create(req, res);
-  })
-  app.delete('/people/:id', function(req, res) {
-    Person.delete(req, res);
-  })
-  app.post('/edit/people', function(req, res) {
-    Person.update(req, res);
-  })
-  */
 
   /**
    * Method: post
@@ -47,7 +34,7 @@ module.exports = function(app) {
    * Param: kitten id
    *
    *  The pagination is based on the last kitten id
-   *  Calling this method will return 12 kittens objects
+   *  Calling this method will return N kitten objects
    *  -- number of kittens returned is based on settings.pagination (see server/config/settings.js
    *
    */

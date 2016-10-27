@@ -84,6 +84,8 @@ module.exports = (function() {
                 res.json(err);
               } else {
                 res.json(data);
+                console.log('ALL kittens from backend: ', data[0].name);
+                console.log('ALL kittens from backend: ', data[11].name);
               }
         })
 

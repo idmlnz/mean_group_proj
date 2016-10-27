@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
   <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
@@ -9,12 +9,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
 
-        .thumbnail img { 
+        .thumbnail img {
           transition: all .2s ease-in-out;
           }
 
-        .thumbnail img:hover { 
-          transform: scale(1.1); 
+        .thumbnail img:hover {
+          transform: scale(1.1);
         }
     </style>
     <script>
@@ -38,7 +38,7 @@
 
 
   </head>
-  <body>
+  <body ng-controller="KittensController">
     <nav class="navbar navbar-default" >
       <div class="container-fluid">
         <div class="navbar-header">
@@ -63,7 +63,9 @@
         </div>
       </div>
     </nav>
-  
+
+
+    <h1 ng-repeat="x in kittens">{{kitten.name}}</h1>
 
     <div class="container">
       <br>
@@ -80,26 +82,29 @@
 
             <div class="row">
               <div class="col-xs-6 col-md-3">
-
                 <button type="submit" class="thumbnail button-cat" data-toggle="modal" data-target="#myModal2">
                   <img class="img-responsive img-rounded" src="../static/images/cat1.jpeg" alt="cat1" >
                 </button>
               </div>
+
               <div class="col-xs-6 col-md-3">
                 <a href="/" class="thumbnail">
                   <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat2.jpeg') }}" alt="cat2" >
                 </a>
               </div>
+
               <div class="col-xs-6 col-md-3">
                 <a href="/" class="thumbnail">
                   <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat3.jpeg') }}" alt="cat3" >
                 </a>
               </div>
+
               <div class="col-xs-6 col-md-3">
                 <a href="/" class="thumbnail">
                   <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat4.jpeg') }}" alt="cat4" >
                 </a>
               </div>
+
             </div>
 
             <div class="row">
@@ -149,6 +154,53 @@
             </div>
 
           </div>
+
+
+          <!--
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat18.jpeg') }}" alt="cat18" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat19.jpeg') }}" alt="cat19" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat20.jpeg') }}" alt="cat20" >
+                </a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat21.jpeg') }}" alt="cat21" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat22.jpeg') }}" alt="cat22" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat23.jpeg') }}" alt="cat23" >
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="/" class="thumbnail">
+                  <img class="img-responsive img-rounded" src="{{ url_for('static', filename='images/cat24.jpeg') }}" alt="cat24" >
+                </a>
+              </div>
+            </div>
+
+          </div>
+          -->
 
         </div>
         <!-- Left and right controls -->

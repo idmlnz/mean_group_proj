@@ -31,3 +31,11 @@ span {
 button {
 	background-color: #cccccc;
 }
+
+.thumbnail img {
+    transition: all .2s ease-in-out;
+}
+
+.thumbnail img:hover {
+    transform: scale(1.1);
+}
